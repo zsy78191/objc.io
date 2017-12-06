@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ObjC</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.orzer.club/"/>
+  <updated>2017-12-06T07:59:59.170Z</updated>
+  <id>http://blog.orzer.club/</id>
+  
+  <author>
+    <name>zsy78191</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>说在前面的 2</title>
+    <link href="http://blog.orzer.club/2017/12/06/0-1/"/>
+    <id>http://blog.orzer.club/2017/12/06/0-1/</id>
+    <published>2017-12-06T08:00:00.000Z</published>
+    <updated>2017-12-06T07:59:59.170Z</updated>
+    
+    <content type="html"><![CDATA[<p>321</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;321&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>说在前面的</title>
+    <link href="http://blog.orzer.club/2017/12/06/0-0/"/>
+    <id>http://blog.orzer.club/2017/12/06/0-0/</id>
+    <published>2017-12-06T07:00:00.000Z</published>
+    <updated>2017-12-06T09:33:36.122Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="属性还是方法"><a href="#属性还是方法" class="headerlink" title="属性还是方法"></a>属性还是方法</h1><p><code>面向对象</code>（Object Oriented,OO）这个概念大家都有所耳闻，</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;属性还是方法&quot;&gt;&lt;a href=&quot;#属性还是方法&quot; class=&quot;headerlink&quot; title=&quot;属性还是方法&quot;&gt;&lt;/a&gt;属性还是方法&lt;/h1&gt;&lt;p&gt;&lt;code&gt;面向对象&lt;/code&gt;（Object Oriented,OO）这个概念大家都有所耳闻，&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
