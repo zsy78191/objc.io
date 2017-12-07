@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="从面相对象说起面向对象的程序设计（Object-Oriented Programming，简记为OOP）这个概念大家都有所耳闻，目前（2017.12）,在Tiobe世界语言排行榜上排前十的语言中，C语言和Assembly language(汇编)外的八种语言均原生支持面向对象的程序设计。 怎么判断一种编程语言是否支持OOP呢？看看这门语言是否支持类（class）、对象（object）、封装（enc">
+<meta name="description" content="从面相对象说起面向对象的程序设计（Object-Oriented Programming，简记为OOP）这个概念大家都有所耳闻，目前（2017.12）,在Tiobe世界语言排行榜上排前十的语言中，C语言和Assembly language(汇编)外的八种语言均原生支持面向对象的程序设计。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="说在前面的">
 <meta property="og:url" content="http://blog.orzer.club/2017/12/06/0-0/index.html">
 <meta property="og:site_name" content="ObjC">
-<meta property="og:description" content="从面相对象说起面向对象的程序设计（Object-Oriented Programming，简记为OOP）这个概念大家都有所耳闻，目前（2017.12）,在Tiobe世界语言排行榜上排前十的语言中，C语言和Assembly language(汇编)外的八种语言均原生支持面向对象的程序设计。 怎么判断一种编程语言是否支持OOP呢？看看这门语言是否支持类（class）、对象（object）、封装（enc">
+<meta property="og:description" content="从面相对象说起面向对象的程序设计（Object-Oriented Programming，简记为OOP）这个概念大家都有所耳闻，目前（2017.12）,在Tiobe世界语言排行榜上排前十的语言中，C语言和Assembly language(汇编)外的八种语言均原生支持面向对象的程序设计。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-07T07:35:35.096Z">
+<meta property="og:updated_time" content="2017-12-07T08:54:59.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="说在前面的">
-<meta name="twitter:description" content="从面相对象说起面向对象的程序设计（Object-Oriented Programming，简记为OOP）这个概念大家都有所耳闻，目前（2017.12）,在Tiobe世界语言排行榜上排前十的语言中，C语言和Assembly language(汇编)外的八种语言均原生支持面向对象的程序设计。 怎么判断一种编程语言是否支持OOP呢？看看这门语言是否支持类（class）、对象（object）、封装（enc">
+<meta name="twitter:description" content="从面相对象说起面向对象的程序设计（Object-Oriented Programming，简记为OOP）这个概念大家都有所耳闻，目前（2017.12）,在Tiobe世界语言排行榜上排前十的语言中，C语言和Assembly language(汇编)外的八种语言均原生支持面向对象的程序设计。">
 
 
 
@@ -332,6 +332,7 @@
 
       
         <h2 id="从面相对象说起"><a href="#从面相对象说起" class="headerlink" title="从面相对象说起"></a>从面相对象说起</h2><p><code>面向对象的程序设计</code>（Object-Oriented Programming，简记为OOP）这个概念大家都有所耳闻，目前（2017.12）,在<a href="https://www.tiobe.com/tiobe-index/" target="_blank" rel="noopener">Tiobe</a>世界语言排行榜上排前十的语言中，C语言和Assembly language(汇编)外的八种语言均原生支持<code>面向对象的程序设计</code>。</p>
+<a id="more"></a>
 <p>怎么判断一种编程语言是否支持OOP呢？看看这门语言是否支持类（class）、对象（object）、封装（encapsulation）、继承（inheritance）等功能和特性，支持这些就可以进行面向对象编程。拿Objective-C（OC）来说，类就是<code>Class</code>，对象就是<code>instance</code>，万物的基类是<code>NSObject</code>，这些东西在C语言里并不存在，是OC使用C语言的结构体（struct）抽象出来的产物。</p>
 <p>我们从Objective-C的名字上也能看出一些端倪，直译过来是<code>对象化的C语言</code>，当然不仅是OC，排行榜前十中的C++同样是C语言的一个超集；C#和Java同样属于类C语言，把面向对象做的更加彻底；PHP虽然是脚本语言，其解释器是使用C语言写的；而我们常说的Python，其全称则是CPython，也是用C语言实现的解释器，当然Python解释器也有Java和C#实现的版本。</p>
 <p>为什么C语言，比其他语言显得更底层呢？接触过的朋友相信都有很深的体会，C语言的程序，是在和图灵机硬件打交道，变量、数组、结构体，声明在堆内存就要为其分配内存空间大小，分配了内存，就要手动回收；数组还要区分静态和动态，每块数据占几个字节，躺在内存的什么位置，一切都按编程人员的安排。所以有人说C语言就是一个高级汇编，想起来确实有一分道理（笑）。但在智能手机、移动计算机计算能力大大提升的今天，计算资源早已不是通用编程首先考虑的问题，相比于C语言强迫编程人员从机器的角度设计程序，抽象程度更高的OOP才更接近人脑的思维方式，才更适合提高软件工程师的编程效率。</p>
