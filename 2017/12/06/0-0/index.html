@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="ObjC">
 <meta property="og:description" content="从面相对象说起面向对象的程序设计（Object-Oriented Programming，简记为OOP）这个概念大家都有所耳闻，目前（2017.12）,在Tiobe世界语言排行榜上排前十的语言中，C语言和Assembly language(汇编)外的八种语言均原生支持面向对象的程序设计。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-07T08:54:59.973Z">
+<meta property="og:updated_time" content="2017-12-07T09:19:54.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="说在前面的">
 <meta name="twitter:description" content="从面相对象说起面向对象的程序设计（Object-Oriented Programming，简记为OOP）这个概念大家都有所耳闻，目前（2017.12）,在Tiobe世界语言排行榜上排前十的语言中，C语言和Assembly language(汇编)外的八种语言均原生支持面向对象的程序设计。">
@@ -382,7 +382,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(text)</span>:</span></div><div class="line">	a = text.split(<span class="string">' '</span>)</div><div class="line">	a.reverse()</div><div class="line">	<span class="keyword">return</span> <span class="string">' '</span>.join(a)</div></pre></td></tr></table></figure>
 <p>Ruby的实现为</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(string)</span></span></div><div class="line">  <span class="keyword">return</span> string.split.reverse.join(<span class="string">' '</span>)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>观察出来区别了了吧，重要的不是Ruby只用了一行代码，而是Ruby相比于OC和Python，省去了很多中间变量。当然，OC可以通过括号多层嵌套连贯起来写，也能达到同样的效果，但方法名过长和不当的缩紧，会让代码更难理解。而Python的接口设计则更滑稽一些，首先在Ruby中</p>
+<p>观察出来区别了了吧，重要的不是Ruby只用了一行代码，而是Ruby相比于OC和Python，省去了很多中间变量，别看只是一点点节省，其实省去我们实际开发中很大一部分无用工作。当然，OC可以通过括号多层嵌套连贯起来写，也能达到同样的效果，但我们并不推荐这样做，因为OC的方法名偏长，如果缩进不当，会让代码更难理解。</p>
+<p>相比之下，Python的接口设计更滑稽一些，首先在Ruby中</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">array.reverse!</div><div class="line">array.reverse</div></pre></td></tr></table></figure>
 <p>是两个不同的方法，前者只逆转array，没有返回值。后者则返回一个新的逆转数组对象，Python没有类似设计。</p>
 <p>其次Ruby和OC都将join方法设计在array类里，唯独Python将其设为字符串类型的方法，导致了Python没法连贯地将中间参数略去。</p>
