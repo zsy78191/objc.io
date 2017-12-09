@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="ObjC">
 <meta property="og:description" content="前篇说到我们通过ObjC的Category特性给日常工作增加便捷的实现，这一篇则要从语言设计角度，跟大家分享一些思考。 不要忽视interfaceObjC的@interface设计，跟Java和C#真的很像，但又略有不同，相比之下Java和C#则像是一个模子刻出来的。ObjC的特点十分明显，首先是一般不用写@private和@public来区分私有变量，大部分ObjC开发者甚至都不知道还有这两个关">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-09T07:50:32.246Z">
+<meta property="og:updated_time" content="2017-12-09T07:53:55.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二、interface和setter，getter">
 <meta name="twitter:description" content="前篇说到我们通过ObjC的Category特性给日常工作增加便捷的实现，这一篇则要从语言设计角度，跟大家分享一些思考。 不要忽视interfaceObjC的@interface设计，跟Java和C#真的很像，但又略有不同，相比之下Java和C#则像是一个模子刻出来的。ObjC的特点十分明显，首先是一般不用写@private和@public来区分私有变量，大部分ObjC开发者甚至都不知道还有这两个关">
@@ -337,7 +337,7 @@
 <p>在@interface 中使用 @private和@public</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Student</span> : <span class="title">NSObject</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">@private</span></div><div class="line">    <span class="built_in">NSString</span>* _name;</div><div class="line">    <span class="keyword">@public</span></div><div class="line">    <span class="built_in">NSNumber</span>* _age;</div><div class="line">    <span class="keyword">int</span> _height;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 <p>如上代码中，<code>Student</code>有一个私有变量<code>_name</code>，和两个共有变量<code>_age</code>、<code>_height</code>，但在<code>@interface</code>中声明变量，一定不是Cocoa设计者的初衷，这里有两个方面的考虑。</p>
-<p>其一，把内部变量直接暴露在外，会降低整个框架的稳定性，因为增加不同模块之间的耦合，降低了每个类的内聚性。<br>其二，内部变量的变量名，很容易跟局部变量变量名产生冲突。上例中我给每一个变量名前加了下划线，如果不增加下划线，就是为了防止这个问题发生。</p>
+<p>其一，把内部变量直接暴露在外，会降低整个框架的稳定性，因为增加不同模块之间的耦合，降低了每个类的内聚性。<br>其二，内部变量的变量名，很容易跟局部变量变量名产生冲突。上例中我给每一个变量名前加了下划线，就是为了防止这个问题发生。</p>
 <p>所以纵观Cocoa框架的头文件设计，基本没有这样的代码，因为设计者提供了更好的实现方式，就是大家用的更多的<code>@property</code>关键字。</p>
 <p>如果用@property声明上面的类，大家都很熟悉</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Student</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span>* name;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSNumber</span>* age;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> height;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
