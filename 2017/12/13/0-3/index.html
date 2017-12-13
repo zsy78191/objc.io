@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="经过三篇文章的铺垫，这里我们终于要讨论到核心部分，就是关于ObjC的消息机制，但不涉及任何关于runtime的内容。 点语法与中括号我们知道在ObjC中给对象或者类发消息的标准语法是使用一对中括号： 1234NSArray* array = @[@(1),@(2),@(3)];[array count];[array objectAtIndex:1];[array objectEnumerator">
+<meta name="description" content="经过三篇文章的铺垫，这里我们终于要讨论到核心部分，就是关于ObjC的消息机制，但不涉及任何关于runtime的内容。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三、是消息？还是属性？">
 <meta property="og:url" content="http://blog.orzer.club/2017/12/13/0-3/index.html">
 <meta property="og:site_name" content="ObjC">
-<meta property="og:description" content="经过三篇文章的铺垫，这里我们终于要讨论到核心部分，就是关于ObjC的消息机制，但不涉及任何关于runtime的内容。 点语法与中括号我们知道在ObjC中给对象或者类发消息的标准语法是使用一对中括号： 1234NSArray* array = @[@(1),@(2),@(3)];[array count];[array objectAtIndex:1];[array objectEnumerator">
+<meta property="og:description" content="经过三篇文章的铺垫，这里我们终于要讨论到核心部分，就是关于ObjC的消息机制，但不涉及任何关于runtime的内容。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-13T09:00:00.026Z">
+<meta property="og:updated_time" content="2017-12-13T09:04:02.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三、是消息？还是属性？">
-<meta name="twitter:description" content="经过三篇文章的铺垫，这里我们终于要讨论到核心部分，就是关于ObjC的消息机制，但不涉及任何关于runtime的内容。 点语法与中括号我们知道在ObjC中给对象或者类发消息的标准语法是使用一对中括号： 1234NSArray* array = @[@(1),@(2),@(3)];[array count];[array objectAtIndex:1];[array objectEnumerator">
+<meta name="twitter:description" content="经过三篇文章的铺垫，这里我们终于要讨论到核心部分，就是关于ObjC的消息机制，但不涉及任何关于runtime的内容。">
 
 
 
@@ -323,6 +323,7 @@
 
       
         <p>经过三篇文章的铺垫，这里我们终于要讨论到核心部分，就是关于ObjC的消息机制，但不涉及任何关于runtime的内容。</p>
+<a id="more"></a>
 <h2 id="点语法与中括号"><a href="#点语法与中括号" class="headerlink" title="点语法与中括号"></a>点语法与中括号</h2><p>我们知道在ObjC中给对象或者类发消息的标准语法是使用一对中括号：</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSArray</span>* array = @[@(<span class="number">1</span>),@(<span class="number">2</span>),@(<span class="number">3</span>)];</div><div class="line">[array count];</div><div class="line">[array objectAtIndex:<span class="number">1</span>];</div><div class="line">[array objectEnumerator];</div></pre></td></tr></table></figure>
 <p>这里我们看一下<code>count</code>、<code>objectAtIndex:</code>和<code>objectEnumerator</code>的声明：</p>
