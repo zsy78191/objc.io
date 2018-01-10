@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="ObjC">
 <meta property="og:description" content="前篇说到我们通过ObjC的Category特性给日常工作增加便捷的实现，这一篇则要从语言设计角度，跟大家分享一些思考。 不要忽视interfaceObjC的@interface设计，跟Java和C#真的很像，但又略有不同，相比之下Java和C#则像是一个模子刻出来的。ObjC的特点十分明显，首先是一般不用写@private和@public来区分私有变量，大部分ObjC开发者甚至都不知道还有这两个关">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-09T08:25:18.681Z">
+<meta property="og:updated_time" content="2017-12-14T03:12:34.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二、interface和setter，getter">
 <meta name="twitter:description" content="前篇说到我们通过ObjC的Category特性给日常工作增加便捷的实现，这一篇则要从语言设计角度，跟大家分享一些思考。 不要忽视interfaceObjC的@interface设计，跟Java和C#真的很像，但又略有不同，相比之下Java和C#则像是一个模子刻出来的。ObjC的特点十分明显，首先是一般不用写@private和@public来区分私有变量，大部分ObjC开发者甚至都不知道还有这两个关">
@@ -339,6 +339,12 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这两个方法可以重写</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setHeight:(<span class="built_in">NSInteger</span>)height</div><div class="line">&#123;</div><div class="line">    _height = height;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">NSInteger</span>)height</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> _height;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在setter和getter方法均重写的情况下，@synthesize需要手动添加。</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@synthesize</span> height = _height;</div></pre></td></tr></table></figure>
+<p>ObjC的property，其实只是getter、setter方法的便捷包装工具，对于一个property，可以只有getter没有setter（readonly），可以没有内部变量，甚至property的各种修饰声明，内部变量同样支持：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">XXClass</span>()</span></div><div class="line">&#123;</div><div class="line">   __<span class="keyword">strong</span> <span class="built_in">NSMutableArray</span>* _students;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readwrite</span>) <span class="built_in">NSMutableArray</span>* students;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>当然<code>nonatomic</code>和<code>readwrite</code>是针对setter和getter方法的修饰，内部变量没有。</p>
+<blockquote>
+<p>nonatomic关键字和atomic关键字，决定编译器会不会自动给setter和getter方法加原子锁，atomic模式能保证多线程访问安全，但是运行效率要低，所以一般不涉及跨线程并发操作的属性，我们都用nonatomic修饰。</p>
+</blockquote>
 <h2 id="为什么要使用-setter-和-getter"><a href="#为什么要使用-setter-和-getter" class="headerlink" title="为什么要使用 setter 和 getter"></a>为什么要使用 setter 和 getter</h2><p><code>setter</code>和<code>getter</code>的设计的确值得琢磨，我们主要从以下几点分析：</p>
 <h3 id="setter-和-getter-包装了内部变量，整个类对外可以只暴露接口，增强类的内聚性。"><a href="#setter-和-getter-包装了内部变量，整个类对外可以只暴露接口，增强类的内聚性。" class="headerlink" title="setter 和 getter 包装了内部变量，整个类对外可以只暴露接口，增强类的内聚性。"></a>setter 和 getter 包装了内部变量，整个类对外可以只暴露接口，增强类的内聚性。</h3><p>例如上例中的内部变量<code>_name</code>，外部类是无法操作的，只能通过set和get接口来发消息：</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Student* s = [[Student alloc] init];</div><div class="line"></div><div class="line">[s setName:<span class="string">@"Tom"</span>];</div><div class="line">[s name];</div></pre></td></tr></table></figure>
@@ -477,7 +483,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -557,7 +563,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
