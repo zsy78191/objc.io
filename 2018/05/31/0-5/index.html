@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="ObjC">
 <meta property="og:description" content="五年前我们团队制作第一版倒数日时，并不支持农历，那个时候iOS系统也没有农历的相关接口。14年制作第二版倒数日（iDays）的时候，为了实现农历和公历的双向转换，使用sql数据库存储了前后100年内每日的农历信息，数据容量8Mb左右，增加了软件大小，且限制了年限为 1900年-2100年间。 直到iOS 8.0，iOS系统框架开始才开始支持中国农历的相关计算，我们将系统的相关类进行扩充，以满足我们">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-31T09:14:51.052Z">
+<meta property="og:updated_time" content="2018-05-31T09:17:47.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSDate，NSCalendar的农历支持">
 <meta name="twitter:description" content="五年前我们团队制作第一版倒数日时，并不支持农历，那个时候iOS系统也没有农历的相关接口。14年制作第二版倒数日（iDays）的时候，为了实现农历和公历的双向转换，使用sql数据库存储了前后100年内每日的农历信息，数据容量8Mb左右，增加了软件大小，且限制了年限为 1900年-2100年间。 直到iOS 8.0，iOS系统框架开始才开始支持中国农历的相关计算，我们将系统的相关类进行扩充，以满足我们">
@@ -329,7 +329,9 @@
 <h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p><a href="https://github.com/zsy78191/gerinn-dev-kit" target="_blank" rel="noopener">Github</a></p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="NSDate-Lunar"><a href="#NSDate-Lunar" class="headerlink" title="NSDate+Lunar"></a>NSDate+Lunar</h3><p>NSDate+Lunar 部分包含了<code>NSDate</code>和<code>NSCalendar</code>两个部分的扩充。</p>
 <h4 id="NSDate"><a href="#NSDate" class="headerlink" title="NSDate"></a>NSDate</h4><p>获取当前日期是否为农历闰月。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)lunar_isLeapMonth;</div><div class="line">``</div><div class="line"></div><div class="line">获取农历月份，和中文描述。</div><div class="line"></div><div class="line">```objectivec</div><div class="line">- (<span class="built_in">NSInteger</span>)lunar_month;</div><div class="line">- (<span class="built_in">NSInteger</span>)lunar_month_chinese;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)lunar_isLeapMonth;</div></pre></td></tr></table></figure>
+<p>获取农历月份，和中文描述。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSInteger</span>)lunar_month;</div><div class="line">- (<span class="built_in">NSInteger</span>)lunar_month_chinese;</div></pre></td></tr></table></figure>
 <p>获取农历年份的干支描述，农历以公元前2697年为第一个甲子年，60年一个周期，lunar_year的值为1-60。</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSInteger</span>)lunar_year;</div><div class="line">- (<span class="built_in">NSString</span>*)lunar_year_chinese;</div></pre></td></tr></table></figure>
 <p>获取农历日期，以及中文描述。</p>
